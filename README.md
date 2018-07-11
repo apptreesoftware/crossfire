@@ -2,6 +2,10 @@
 
 Cross-platform APIs for Firebase.  
 
+- [crossfire](https://pub.dartlang.org/packages/crossfire) - platform-agnostic firebase API
+- [crossfire_flutter](https://pub.dartlang.org/packages/crossfire_flutter) - flutter implementation
+- [crossfire_web](https://pub.dartlang.org/packages/crossfire_web) - web implementation
+
 ## Usage
 
 Build your API using a `crossfire` `Firebase` object:
