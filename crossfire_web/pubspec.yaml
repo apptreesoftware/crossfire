@@ -1,0 +1,17 @@
+name: crossfire_web
+description: A starting point for Dart libraries or applications.
+# version: 1.0.0
+# homepage: https://www.example.com
+# author: john <email@example.com>
+
+environment:
+  sdk: '>=1.23.0 <2.0.0'
+
+dependencies:
+  crossfire:
+    path: /Users/john/code/projects/crossfire
+  jsifier: any
+  firebase: any
+
+dev_dependencies:
+  test: ^0.12.30
