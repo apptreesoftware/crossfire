@@ -60,10 +60,10 @@ packages:
   crossfire:
     dependency: "direct main"
     description:
-      path: "/Users/john/code/projects/crossfire"
-      relative: false
-    source: path
-    version: "0.0.0"
+      name: crossfire
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0"
   crypto:
     dependency: transitive
     description:
@@ -411,5 +411,5 @@ packages:
     source: hosted
     version: "2.1.13"
 sdks:
-  dart: ">=2.0.0-dev.55.0 <=2.0.0-dev.58.0.flutter-f981f09760"
+  dart: ">=2.0.0-dev.54.0 <=2.0.0-dev.58.0.flutter-f981f09760"
   flutter: ">=0.2.4 <2.0.0"

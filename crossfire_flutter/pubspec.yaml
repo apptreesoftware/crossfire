@@ -6,13 +6,16 @@ authors:
 - John Ryan <john.p.ryan4@gmail.com>
 - Matthew Smith <matthew.smith@apptree.cloud>
 
+environment:
+  sdk: ">=2.0.0-dev.1.0 <2.0.0"
+
+
 dependencies:
   flutter:
     sdk: flutter
-  crossfire:
-    path: /Users/john/code/projects/crossfire_mono/crossfire
+  crossfire: ^1.0.0
 
-  cloud_firestore: any
+  cloud_firestore: ^0.7.3
   # TODO: Make a PR
   # this branch allows switching between firebase apps at runtime
   firebase_auth:
@@ -20,9 +23,9 @@ dependencies:
       url: git://github.com/apptreesoftware/plugins
       path: packages/firebase_auth
 
-  firebase_core: any
-  firebase_storage: any
-  firebase_database: any
+  firebase_core: ^0.2.4
+  firebase_storage: ^1.0.0
+  firebase_database: ^1.0.1
 
 dev_dependencies:
   flutter_test:

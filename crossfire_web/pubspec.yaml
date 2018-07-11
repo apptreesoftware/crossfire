@@ -10,8 +10,7 @@ environment:
   sdk: '>=1.23.0 <2.0.0'
 
 dependencies:
-  crossfire:
-    path: /Users/john/code/projects/crossfire_mono/crossfire
+  crossfire: ^1.0.0
   jsifier: any
   firebase: any
 
