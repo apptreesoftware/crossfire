@@ -1,8 +1,10 @@
 name: crossfire
-description: A starting point for Dart libraries or applications.
- version: 1.0.0
- homepage: https://www.github.com/apptreesoftware/crossfire
-# author: john <email@example.com>
+description: Cross-platform firebase API
+version: 1.0.0
+homepage: https://www.github.com/apptreesoftware/crossfire
+authors:
+- John Ryan <john.p.ryan4@gmail.com>
+- Matthew Smith <matthew.smith@apptree.cloud>
 
 environment:
   sdk: '>=1.23.0 <2.0.0'

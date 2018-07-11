@@ -1,16 +1,18 @@
 name: crossfire_flutter
 description: Cross-platform firebase API for Flutter
-version: 0.0.1
-author:
-homepage:
+version: 1.0.0
+homepage: https://www.github.com/apptreesoftware/crossfire
+authors:
+- John Ryan <john.p.ryan4@gmail.com>
+- Matthew Smith <matthew.smith@apptree.cloud>
 
 dependencies:
   flutter:
     sdk: flutter
   crossfire:
-    path: /Users/john/code/projects/crossfire
-  cloud_firestore: any
+    path: /Users/john/code/projects/crossfire_mono/crossfire
 
+  cloud_firestore: any
   # TODO: Make a PR
   # this branch allows switching between firebase apps at runtime
   firebase_auth:
