@@ -11,8 +11,8 @@ environment:
 
 dependencies:
   crossfire: ^1.0.0
-  jsifier: any
-  firebase: any
+  jsifier: ^1.1.0
+  firebase: ^4.5.0
 
 dev_dependencies:
   test: ^0.12.30
