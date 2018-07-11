@@ -54,11 +54,22 @@ Future setupMyApp() async {
 
 ```dart
 import 'package:crossfire/crossfire.dart';
-import 'package:crossfire_web/crossfire_web.dart';
+import 'package:crossfire_web/crossfire_flutter.dart';
+FirebaseConfiguration configuration;
 
 Future setupMyApp() async {
   var firebase = new FirebaseFlutter();
-  var config = new FirebaseConfiguration(
+  await firebase.init(configuration);
+  var app = new MyFancyApp();
+}
+```
+
+note: a FirebaseConfiguration usually looks something like this:
+
+```dart
+FirebaseConfiguration configuration;
+void setupConfig() {
+  configuration = new FirebaseConfiguration(
     apiKey: "<API_KEY>",
     databaseUrl: "https://mydb.firebaseio.com",
     storageBucket: "myapp.appspot.com",
@@ -66,8 +77,5 @@ Future setupMyApp() async {
     iosGoogleAppId: "1:111111111111:ios:22222222222222222",
     androidGoogleAppId: "1:111111111111:android:22222222222222222",
   );
-  await firebase.init(config);
-  var app = new MyFancyApp();
 }
 ```
-
