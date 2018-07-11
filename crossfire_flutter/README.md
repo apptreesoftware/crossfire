@@ -1,9 +1,6 @@
 # crossfire_flutter
 
-Cross-platform firebase API for Flutter
+Cross-platform APIs for Firebase.
 
-## Getting Started
-
-For help getting started with Flutter, view our online [documentation](https://flutter.io/).
-
-For help on editing package code, view the [documentation](https://flutter.io/developing-packages/).
+see the [project page](http://github.com/apptreesoftware/crossfire) for usage
+examples
