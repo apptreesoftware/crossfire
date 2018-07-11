@@ -9,14 +9,14 @@ part of 'configuration.dart';
 FirebaseConfiguration _$FirebaseConfigurationFromJson(
     Map<String, dynamic> json) {
   return new FirebaseConfiguration(
-      json['apiKey'] as String,
-      json['authDomain'] as String,
-      json['databaseUrl'] as String,
-      json['projectId'] as String,
-      json['storageBucket'] as String,
-      json['androidGoogleAppId'] as String,
-      json['iosGoogleAppId'] as String,
-      json['iosGCMSenderId'] as String);
+      apiKey: json['apiKey'] as String,
+      authDomain: json['authDomain'] as String,
+      databaseUrl: json['databaseUrl'] as String,
+      projectId: json['projectId'] as String,
+      storageBucket: json['storageBucket'] as String,
+      androidGoogleAppId: json['androidGoogleAppId'] as String,
+      iosGoogleAppId: json['iosGoogleAppId'] as String,
+      iosGCMSenderId: json['iosGCMSenderId'] as String);
 }
 
 abstract class _$FirebaseConfigurationSerializerMixin {

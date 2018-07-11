@@ -14,7 +14,7 @@ class FirebaseConfiguration extends Object
   final String androidGoogleAppId;
   final String iosGCMSenderId;
 
-  FirebaseConfiguration(
+  FirebaseConfiguration({
     this.apiKey,
     this.authDomain,
     this.databaseUrl,
@@ -23,7 +23,7 @@ class FirebaseConfiguration extends Object
     this.androidGoogleAppId,
     this.iosGoogleAppId,
     this.iosGCMSenderId,
-  );
+  });
 
   factory FirebaseConfiguration.fromJson(json) =>
       _$FirebaseConfigurationFromJson(json);
