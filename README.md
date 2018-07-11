@@ -37,17 +37,11 @@ Then inject the `Firebase` implementation based on the platform:
 import 'package:crossfire/crossfire.dart';
 import 'package:crossfire_web/crossfire_web.dart';
 
+FirebaseConfiguration configuration;
+
 Future setupMyApp() async {
   var firebase = new FirebaseWeb();
-  var config = new FirebaseConfiguration(
-    apiKey: "<API_KEY>",
-    databaseUrl: "https://mydb.firebaseio.com",
-    storageBucket: "myapp.appspot.com",
-    projectId: "myproject",
-    iosGoogleAppId: "1:111111111111:ios:22222222222222222",
-    androidGoogleAppId: "1:111111111111:android:22222222222222222",
-  );
-  await firebase.init(config);
+  await firebase.init(configuration);
   var app = new MyFancyApp();
 }
 ```
