@@ -16,7 +16,7 @@ class FirebaseWeb implements Firebase {
   FirebaseWeb() : _connectionChangeSink = new StreamController.broadcast();
 
   @override
-  Future init(FirebaseConfiguration config, {String bundleId}) {
+  Future init(FirebaseConfiguration config, {String bundleId}) async {
     var app;
     try {
       app = fb.app(config.projectId);

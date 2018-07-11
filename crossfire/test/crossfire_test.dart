@@ -1,4 +1,3 @@
-import 'package:crossfire/crossfire.dart';
 import 'package:test/test.dart';
 
 void main() {
