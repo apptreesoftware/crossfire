@@ -6,6 +6,12 @@ Cross-platform APIs for Firebase.
 - [crossfire_flutter](https://pub.dartlang.org/packages/crossfire_flutter) - flutter implementation
 - [crossfire_web](https://pub.dartlang.org/packages/crossfire_web) - web implementation
 
+## Supported APIs
+
+- Firebase Auth (currently only with [custom tokens][custom-tokens])
+- Firestore (collections and documents)
+- Cloud Storage
+
 ## Usage
 
 Build your API using a `crossfire` `Firebase` object:
@@ -77,3 +83,5 @@ void setupConfig() {
   );
 }
 ```
+
+[custom-tokens]: https://firebase.google.com/docs/auth/admin/create-custom-tokens
