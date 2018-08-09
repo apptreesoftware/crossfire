@@ -49,7 +49,7 @@ class FirebaseWeb implements Firebase {
 
   @override
   Future<FirebaseStorageRef> getStorage(String path) async {
-    var ref = _storage.ref().child(path);
+    var ref = _storage.ref(path);
     return new BrowserFirebaseStorageRef(ref);
   }
 
