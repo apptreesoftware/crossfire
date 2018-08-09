@@ -4,7 +4,7 @@ version: 1.0.0+2
 homepage: https://www.github.com/apptreesoftware/crossfire
 authors:
 - John Ryan <john.p.ryan4@gmail.com>
-- Matthew Smith <matthew.smith@apptree.cloud>
+- Matthew Smith <matthew.smith@apptreesoftware.com>
 
 environment:
   sdk: '>=1.23.0 <2.0.0'
