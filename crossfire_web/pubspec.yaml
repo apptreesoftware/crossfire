@@ -1,18 +1,18 @@
 name: crossfire_web
 description: Cross-platform firebase API for browsers
-version: 1.0.0+2
+version: 2.0.0+1
 homepage: https://www.github.com/apptreesoftware/crossfire
 authors:
 - John Ryan <john.p.ryan4@gmail.com>
 - Matthew Smith <matthew.smith@apptreesoftware.com>
 
 environment:
-  sdk: '>=1.23.0 <2.0.0'
+  sdk: '>=2.0.0 <3.0.0'
 
 dependencies:
-  crossfire: ^1.0.0
-  jsifier: ^1.1.0
-  firebase: ^4.5.0
+  crossfire: ^2.0.0
+  jsifier: ^2.0.0
+  firebase: ^5.0.0
 
 dev_dependencies:
-  test: ^0.12.30
+  test: ^1.3.0

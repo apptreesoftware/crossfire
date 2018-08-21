@@ -79,7 +79,7 @@ class BrowserFirebaseQuerySnapshot implements FirebaseQuerySnapshot {
   BrowserFirebaseQuerySnapshot(this._snapshot);
 
   @override
-  List<FirebaseDocumentChange> get documentChanges => _snapshot.docChanges
+  List<FirebaseDocumentChange> get documentChanges => _snapshot.docChanges()
       .map((c) => new BrowserFirebaseDocumentChange(c))
       .toList();
 
