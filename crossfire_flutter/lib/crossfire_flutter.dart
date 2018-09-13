@@ -27,7 +27,8 @@ class FlutterFirebase implements Firebase {
   Future<FirebaseUser> get currentUser async => await auth.currentUser();
 
   @override
-  Future init(FirebaseConfiguration config, {String bundleId}) async {
+  Future init(FirebaseConfiguration config,
+      {String bundleId, bool usePersistence}) async {
     var platform = defaultTargetPlatform;
     var googleApiKey = platform == TargetPlatform.android
         ? config.androidGoogleAppId
@@ -48,11 +49,10 @@ class FlutterFirebase implements Firebase {
       );
       _connected = true;
     }
-    var allApps = await FirebaseApp.allApps();
-    for (var app in allApps) {
-      print(app.name);
-    }
     _firestore = new Firestore(app: app);
+    if (usePersistence != null) {
+      _firestore.enablePersistence(usePersistence);
+    }
     auth = new FirebaseAuth(app: app);
     _storage = new FirebaseStorage(app: app);
     _listenForConnectivityChanges();
