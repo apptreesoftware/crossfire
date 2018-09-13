@@ -3,7 +3,8 @@ import 'dart:async';
 import 'configuration.dart';
 
 abstract class Firebase {
-  Future init(FirebaseConfiguration config, {String bundleId});
+  Future init(FirebaseConfiguration config,
+      {String bundleId, bool usePersistence});
   Future<bool> signIn(String token);
   Future<Null> signOut();
   Future<bool> isLoggedIn();
@@ -36,14 +37,14 @@ abstract class FirebaseCollection {
   Future<FirebaseDocumentReference> add(Map<String, dynamic> document);
   FirebaseDocumentReference document([String path]);
   FirebaseQuery where(
-      String field, {
-        dynamic isEqualTo,
-        dynamic isLessThan,
-        dynamic isLessThanOrEqualTo,
-        dynamic isGreaterThan,
-        dynamic isGreaterThanOrEqualTo,
-        bool isNull,
-      });
+    String field, {
+    dynamic isEqualTo,
+    dynamic isLessThan,
+    dynamic isLessThanOrEqualTo,
+    dynamic isGreaterThan,
+    dynamic isGreaterThanOrEqualTo,
+    bool isNull,
+  });
   FirebaseQuery orderBy(String field, {bool descending: false});
 }
 
@@ -78,14 +79,14 @@ abstract class FirebaseQuery {
   Stream<FirebaseQuerySnapshot> get snapshots;
   Future<FirebaseQuerySnapshot> get documents;
   FirebaseQuery where(
-      String field, {
-        dynamic isEqualTo,
-        dynamic isLessThan,
-        dynamic isLessThanOrEqualTo,
-        dynamic isGreaterThan,
-        dynamic isGreaterThanOrEqualTo,
-        bool isNull,
-      });
+    String field, {
+    dynamic isEqualTo,
+    dynamic isLessThan,
+    dynamic isLessThanOrEqualTo,
+    dynamic isGreaterThan,
+    dynamic isGreaterThanOrEqualTo,
+    bool isNull,
+  });
   FirebaseQuery orderBy(String field, {bool descending: false});
   FirebaseQuery limit(int length);
 }

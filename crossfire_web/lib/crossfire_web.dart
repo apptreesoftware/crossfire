@@ -16,7 +16,8 @@ class FirebaseWeb implements Firebase {
   FirebaseWeb() : _connectionChangeSink = new StreamController.broadcast();
 
   @override
-  Future init(FirebaseConfiguration config, {String bundleId}) async {
+  Future init(FirebaseConfiguration config,
+      {String bundleId, bool usePersistence}) async {
     var app;
     try {
       app = fb.app(config.projectId);
@@ -32,6 +33,9 @@ class FirebaseWeb implements Firebase {
     }
     auth = fb.auth(app);
     _store = fb.firestore(app);
+    if (usePersistence != null && usePersistence) {
+      _store.enablePersistence();
+    }
     _storage = fb.storage(app);
   }
 
@@ -79,7 +83,8 @@ class BrowserFirebaseQuerySnapshot implements FirebaseQuerySnapshot {
   BrowserFirebaseQuerySnapshot(this._snapshot);
 
   @override
-  List<FirebaseDocumentChange> get documentChanges => _snapshot.docChanges()
+  List<FirebaseDocumentChange> get documentChanges => _snapshot
+      .docChanges()
       .map((c) => new BrowserFirebaseDocumentChange(c))
       .toList();
 
