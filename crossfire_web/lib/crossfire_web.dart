@@ -29,6 +29,7 @@ class FirebaseWeb implements Firebase {
           databaseURL: config.databaseUrl,
           projectId: config.projectId,
           storageBucket: config.storageBucket,
+          messagingSenderId: config.messageSenderId,
           name: config.projectId);
     }
     auth = fb.auth(app);
