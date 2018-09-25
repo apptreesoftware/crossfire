@@ -6,7 +6,7 @@ class FirebaseConfiguration {
   final String storageBucket;
   final String iosGoogleAppId;
   final String androidGoogleAppId;
-  final String iosGCMSenderId;
+  final String messageSenderId;
 
   FirebaseConfiguration({
     this.apiKey,
@@ -16,7 +16,7 @@ class FirebaseConfiguration {
     this.storageBucket,
     this.androidGoogleAppId,
     this.iosGoogleAppId,
-    this.iosGCMSenderId,
+    this.messageSenderId,
   });
 
   factory FirebaseConfiguration.fromJson(json) => new FirebaseConfiguration(
@@ -27,7 +27,7 @@ class FirebaseConfiguration {
       storageBucket: json['storageBucket'] as String,
       androidGoogleAppId: json['androidGoogleAppId'] as String,
       iosGoogleAppId: json['iosGoogleAppId'] as String,
-      iosGCMSenderId: json['iosGCMSenderId'] as String);
+      messageSenderId: json['messageSenderId'] as String);
 
   Map<String, dynamic> toJson() => <String, dynamic>{
         'apiKey': apiKey,
@@ -37,6 +37,6 @@ class FirebaseConfiguration {
         'storageBucket': storageBucket,
         'iosGoogleAppId': iosGoogleAppId,
         'androidGoogleAppId': androidGoogleAppId,
-        'iosGCMSenderId': iosGCMSenderId
+        'messageSenderId': messageSenderId
       };
 }
