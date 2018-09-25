@@ -1,6 +1,6 @@
 name: crossfire
 description: Cross-platform firebase API
-version: 2.0.2
+version: 2.0.3
 homepage: https://www.github.com/apptreesoftware/crossfire
 authors:
 - John Ryan <john.p.ryan4@gmail.com>
