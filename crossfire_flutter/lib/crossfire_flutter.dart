@@ -38,7 +38,7 @@ class FlutterFirebase implements Firebase {
         name: config.projectId,
         options: new FirebaseOptions(
           googleAppID: googleApiKey,
-          gcmSenderID: config.iosGCMSenderId,
+          gcmSenderID: config.messageSenderId,
           projectID: config.projectId,
           databaseURL: config.databaseUrl,
           storageBucket: config.storageBucket,

@@ -1,10 +1,4 @@
-import 'package:json_annotation/json_annotation.dart';
-
-part 'configuration.g.dart';
-
-@JsonSerializable()
-class FirebaseConfiguration extends Object
-    with _$FirebaseConfigurationSerializerMixin {
+class FirebaseConfiguration {
   final String apiKey;
   final String authDomain;
   final String databaseUrl;
@@ -12,7 +6,7 @@ class FirebaseConfiguration extends Object
   final String storageBucket;
   final String iosGoogleAppId;
   final String androidGoogleAppId;
-  final String iosGCMSenderId;
+  final String messageSenderId;
 
   FirebaseConfiguration({
     this.apiKey,
@@ -22,9 +16,27 @@ class FirebaseConfiguration extends Object
     this.storageBucket,
     this.androidGoogleAppId,
     this.iosGoogleAppId,
-    this.iosGCMSenderId,
+    this.messageSenderId,
   });
 
-  factory FirebaseConfiguration.fromJson(json) =>
-      _$FirebaseConfigurationFromJson(json);
+  factory FirebaseConfiguration.fromJson(json) => new FirebaseConfiguration(
+      apiKey: json['apiKey'] as String,
+      authDomain: json['authDomain'] as String,
+      databaseUrl: json['databaseUrl'] as String,
+      projectId: json['projectId'] as String,
+      storageBucket: json['storageBucket'] as String,
+      androidGoogleAppId: json['androidGoogleAppId'] as String,
+      iosGoogleAppId: json['iosGoogleAppId'] as String,
+      messageSenderId: json['messageSenderId'] as String);
+
+  Map<String, dynamic> toJson() => <String, dynamic>{
+        'apiKey': apiKey,
+        'authDomain': authDomain,
+        'databaseUrl': databaseUrl,
+        'projectId': projectId,
+        'storageBucket': storageBucket,
+        'iosGoogleAppId': iosGoogleAppId,
+        'androidGoogleAppId': androidGoogleAppId,
+        'messageSenderId': messageSenderId
+      };
 }
