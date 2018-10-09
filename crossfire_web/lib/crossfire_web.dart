@@ -31,12 +31,12 @@ class FirebaseWeb implements Firebase {
           storageBucket: config.storageBucket,
           messagingSenderId: config.messageSenderId,
           name: config.projectId);
+      if (usePersistence != null && usePersistence) {
+        _store.enablePersistence();
+      }
     }
     auth = fb.auth(app);
     _store = fb.firestore(app);
-    if (usePersistence != null && usePersistence) {
-      _store.enablePersistence();
-    }
     _storage = fb.storage(app);
   }
 
