@@ -37,13 +37,12 @@ class FirebaseWeb implements Firebase {
     if (usePersistence != null && usePersistence) {
       try {
         _store.enablePersistence();
-      } catch(e) {
+      } catch (e) {
         // Support re-initializing with a different app. Enabling persistence
         // can throw an error if it has already been enabled once on the page.
       }
     }
     _storage = fb.storage(app);
-
   }
 
   @override
@@ -82,6 +81,12 @@ class FirebaseWeb implements Firebase {
 
   @override
   Stream<bool> get onConnectivityUpdated => _connectionChangeSink.stream;
+
+  @override
+  Future<FirebaseBatch> batch() async {
+    var b = _store.batch();
+    return BrowserFirebaseBatch(b);
+  }
 }
 
 class BrowserFirebaseQuerySnapshot implements FirebaseQuerySnapshot {
@@ -320,5 +325,44 @@ class BrowserFirebaseQuery extends FirebaseQuery {
     }
     var q = _ref.where(field, op, value);
     return new BrowserFirebaseQuery(q);
+  }
+}
+
+class BrowserFirebaseBatch implements FirebaseBatch {
+  final WriteBatch _batch;
+
+  BrowserFirebaseBatch(this._batch);
+
+  @override
+  Future<void> commit() => _batch.commit();
+
+  @override
+  FirebaseBatch delete(FirebaseDocumentReference documentRef) {
+    final doc = documentRef as BrowserFirebaseDocReference;
+    final b = _batch.delete(doc._ref);
+    return BrowserFirebaseBatch(b);
+  }
+
+  @override
+  FirebaseBatch setData(
+    FirebaseDocumentReference documentRef,
+    Map<String, dynamic> data, {
+    bool merge = false,
+  }) {
+    final doc = documentRef as BrowserFirebaseDocReference;
+    final b = _batch.set(doc._ref, data, SetOptions(merge: merge));
+    return BrowserFirebaseBatch(b);
+  }
+
+  @override
+  FirebaseBatch updateData(
+    FirebaseDocumentReference documentRef, {
+    Map<String, dynamic> data,
+    List fieldsAndValues,
+  }) {
+    final doc = documentRef as BrowserFirebaseDocReference;
+    final b =
+        _batch.update(doc._ref, data: data, fieldsAndValues: fieldsAndValues);
+    return BrowserFirebaseBatch(b);
   }
 }
