@@ -196,6 +196,12 @@ class FlutterFirebaseCollection implements FirebaseCollection {
     var q = collection.orderBy(field, descending: descending);
     return new FlutterFirebaseQuery(q);
   }
+
+   @override
+  FirebaseQuery startAfter({FirebaseDocument snapshot, List fieldValues}) {
+    final q = collection.startAfter(fieldValues);
+    return FlutterFirebaseQuery(q);
+  }
 }
 
 class FlutterFirebaseQuery implements FirebaseQuery {
@@ -236,6 +242,12 @@ class FlutterFirebaseQuery implements FirebaseQuery {
   Future<FirebaseQuerySnapshot> get documents async {
     var snapshot = await _ref.getDocuments();
     return new FlutterFirebaseQuerySnapshot(snapshot);
+  }
+
+  @override
+  FirebaseQuery startAfter({FirebaseDocument snapshot, List fieldValues}) {
+    final q = _ref.startAfter(fieldValues);
+    return FlutterFirebaseQuery(q);
   }
 }
 
