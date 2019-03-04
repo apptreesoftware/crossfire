@@ -53,7 +53,7 @@ class FlutterFirebase implements Firebase {
     if (usePersistence != null) {
       _firestore.enablePersistence(usePersistence);
     }
-    auth = new FirebaseAuth(app: app);
+    auth = new FirebaseAuth.fromApp(app);
     _storage = new FirebaseStorage(app: app);
     _listenForConnectivityChanges();
   }
@@ -289,7 +289,7 @@ class FlutterFirebaseStorageRef implements FirebaseStorageRef {
   Future upload(dynamic file, String contentType) {
     var uploadTask = _ref.putFile(
         file as File, new StorageMetadata(contentType: contentType));
-    return uploadTask.future;
+    return uploadTask.onComplete;
   }
 
   String get path => _ref.path;
