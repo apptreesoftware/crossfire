@@ -15,17 +15,11 @@ dependencies:
   crossfire: ^2.0.0
 
   cloud_firestore: ^0.9.5+2
-  # TODO: Make a PR
-  # this branch allows switching between firebase apps at runtime
   firebase_auth: ^0.8.1+4
 
   firebase_core: ^0.3.0
   firebase_storage: ^2.0.0
   firebase_database: ^2.0.0
-
-dependency_overrides:
-  crossfire:
-    path: /Users/matthew/AppTree/crossfire/crossfire
 
 dev_dependencies:
   flutter_test:
