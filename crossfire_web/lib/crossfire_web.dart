@@ -37,13 +37,12 @@ class FirebaseWeb implements Firebase {
     if (usePersistence != null && usePersistence) {
       try {
         _store.enablePersistence();
-      } catch(e) {
+      } catch (e) {
         // Support re-initializing with a different app. Enabling persistence
         // can throw an error if it has already been enabled once on the page.
       }
     }
     _storage = fb.storage(app);
-
   }
 
   @override
@@ -179,6 +178,25 @@ class BrowserFirebaseCollection implements FirebaseCollection {
     }
     var q = _collection.where(field, op, value);
     return new BrowserFirebaseQuery(q);
+  }
+
+  @override
+  FirebaseQuery startAfter({
+    FirebaseDocument snapshot,
+    List fieldValues,
+  }) {
+    DocumentSnapshot snap;
+
+    if (snapshot != null) {
+      final doc = snapshot as BrowserDocumentSnapshot;
+      snap = doc._snapshot;
+    }
+
+    final q = _collection.startAfter(
+      snapshot: snap,
+      fieldValues: fieldValues,
+    );
+    return BrowserFirebaseQuery(q);
   }
 }
 
@@ -320,5 +338,23 @@ class BrowserFirebaseQuery extends FirebaseQuery {
     }
     var q = _ref.where(field, op, value);
     return new BrowserFirebaseQuery(q);
+  }
+
+  @override
+  FirebaseQuery startAfter({
+    FirebaseDocument snapshot,
+    List fieldValues,
+  }) {
+    DocumentSnapshot snap;
+    if (snapshot != null) {
+      final doc = snapshot as BrowserDocumentSnapshot;
+      snap = doc._snapshot;
+    }
+
+    final q = _ref.startAfter(
+      snapshot: snap,
+      fieldValues: fieldValues,
+    );
+    return BrowserFirebaseQuery(q);
   }
 }
