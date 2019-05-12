@@ -13,6 +13,7 @@ abstract class Firebase {
   Future<FirebaseStorageRef> getStorage(String path);
   bool get isConnected;
   Stream<bool> get onConnectivityUpdated;
+  Future<void> runTransaction(TransactionRunner updateFunction);
 }
 
 abstract class FirebaseDocument {
@@ -110,4 +111,21 @@ enum FireDocumentChangeType {
   /// Indicates a document within the query was removed (either deleted or no
   /// longer matches the query.
   removed,
+}
+
+typedef void TransactionRunner(FirebaseTransaction transaction);
+
+abstract class FirebaseTransaction {
+  Future<FirebaseTransaction> delete(FirebaseDocumentReference documentRef);
+  Future<FirebaseDocument> getDocument(FirebaseDocumentReference documentRef);
+  Future<FirebaseTransaction> setData(
+    FirebaseDocumentReference documentRef,
+    Map<String, dynamic> data, {
+    bool merge = false,
+  });
+  Future<FirebaseTransaction> update(
+    FirebaseDocumentReference documentRef, {
+    Map<String, dynamic> data,
+    List fieldsAndValues,
+  });
 }
