@@ -110,6 +110,12 @@ class FlutterFirebase implements Firebase {
 
   @override
   Stream<bool> get onConnectivityUpdated => _connectionChangedSink.stream;
+
+  @override
+  Future<FirebaseBatch> batch() async {
+    final b = _firestore.batch();
+    return FlutterFirebaseBatch(b);
+  }
 }
 
 class FlutterFirebaseDocReference implements FirebaseDocumentReference {
@@ -318,4 +324,42 @@ class FlutterStorageMetadata implements FirebaseStorageMetadata {
   String get path => _metadata.path;
   String get contentType => _metadata.contentType;
   int get size => _metadata.sizeBytes;
+}
+
+class FlutterFirebaseBatch implements FirebaseBatch {
+  final WriteBatch _batch;
+
+  FlutterFirebaseBatch(this._batch);
+
+  @override
+  Future<void> commit() => _batch.commit();
+
+  @override
+  FirebaseBatch delete(FirebaseDocumentReference documentRef) {
+    final doc = documentRef as FlutterFirebaseDocReference;
+    _batch.delete(doc.ref);
+    return this;
+  }
+
+  @override
+  FirebaseBatch setData(
+    FirebaseDocumentReference documentRef,
+    Map<String, dynamic> data, {
+    bool merge = false,
+  }) {
+    final doc = documentRef as FlutterFirebaseDocReference;
+    _batch.setData(doc.ref, data, merge: merge);
+    return this;
+  }
+
+  @override
+  FirebaseBatch updateData(
+    FirebaseDocumentReference documentRef, {
+    Map<String, dynamic> data,
+    List fieldsAndValues,
+  }) {
+    final doc = documentRef as FlutterFirebaseDocReference;
+    _batch.updateData(doc.ref, data);
+    return this;
+  }
 }

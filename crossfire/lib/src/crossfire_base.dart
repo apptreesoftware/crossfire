@@ -13,6 +13,7 @@ abstract class Firebase {
   Future<FirebaseStorageRef> getStorage(String path);
   bool get isConnected;
   Stream<bool> get onConnectivityUpdated;
+  Future<FirebaseBatch> batch();
 }
 
 abstract class FirebaseDocument {
@@ -110,4 +111,19 @@ enum FireDocumentChangeType {
   /// Indicates a document within the query was removed (either deleted or no
   /// longer matches the query.
   removed,
+}
+
+abstract class FirebaseBatch {
+  Future<void> commit();
+  FirebaseBatch delete(FirebaseDocumentReference documentRef);
+  FirebaseBatch setData(
+    FirebaseDocumentReference documentRef,
+    Map<String, dynamic> data, {
+    bool merge: false,
+  });
+  FirebaseBatch updateData(
+    FirebaseDocumentReference documentRef, {
+    Map<String, dynamic> data,
+    List fieldsAndValues,
+  });
 }
