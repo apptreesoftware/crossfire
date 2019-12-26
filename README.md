@@ -58,11 +58,13 @@ Future setupMyApp() async {
 
 ```dart
 import 'package:crossfire/crossfire.dart';
-import 'package:crossfire_web/crossfire_flutter.dart';
+import 'package:crossfire_flutter/crossfire_flutter.dart'; 
+  // make sure to add this to your pubspec.yaml
+  
 FirebaseConfiguration configuration;
 
 Future setupMyApp() async {
-  var firebase = new FirebaseFlutter();
+  var firebase = new FlutterFirebase();
   await firebase.init(configuration);
   var app = new MyFancyApp();
 }
